@@ -12,7 +12,6 @@ import {
   stationLayer,
   prowLayer,
   monitorPointLayer,
-  monitorPointLayer1,
 } from './layers';
 
 export const map = new Map({
@@ -28,17 +27,10 @@ const alignmentGroupLayer = new GroupLayer({
   layers: [stationBoxLayer, chainageLayer, prowLayer],
 });
 
-const monitoringPointGroupLayer = new GroupLayer({
-  title: 'Monitoring Points',
-  visible: true,
-  visibilityMode: 'independent',
-  layers: [monitorPointLayer, monitorPointLayer1],
-});
-
 // Change the layer order by using index numbers in map.add
 map.add(alignmentGroupLayer);
 map.add(stationLayer);
-map.add(monitoringPointGroupLayer);
+map.add(monitorPointLayer);
 
 export const view = new SceneView({
   container: undefined,

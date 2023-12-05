@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { view } from '../Scene';
-import { monitorPointLayer, monitorPointLayer1 } from '../layers';
+import { monitorPointLayer } from '../layers';
 import FeatureFilter from '@arcgis/core/layers/support/FeatureFilter';
 import Query from '@arcgis/core/rest/support/Query';
 import * as am5 from '@amcharts/amcharts5';
@@ -322,57 +322,6 @@ const Chart = () => {
                 where: undefined,
               });
               highlightSelect !== undefined ? highlightSelect.remove() : console.log('');
-            });
-          });
-
-          view.whenLayerView(monitorPointLayer1).then((layerView: any) => {
-            //arrLviews.push(layerView);
-            let highlightSelect2: any;
-            monitorPointLayer1.queryFeatures(query).then((results: any) => {
-              if (results.features.length === 0) {
-              } else {
-                const lengths = results.features;
-                const rows = lengths.length;
-
-                let objID = [];
-                for (var i = 0; i < rows; i++) {
-                  var obj = results.features[i].attributes.OBJECTID;
-                  objID.push(obj);
-                }
-
-                var queryExt = new Query({
-                  objectIds: objID,
-                });
-
-                monitorPointLayer1.queryExtent(queryExt).then((result: any) => {
-                  if (result.extent) {
-                    view.goTo(result.extent);
-                  }
-                });
-
-                if (highlightSelect2) {
-                  highlightSelect2.remove();
-                }
-                highlightSelect2 = layerView.highlight(objID);
-
-                view.on('click', () => {
-                  layerView.filter = new FeatureFilter({
-                    where: undefined,
-                  });
-                  highlightSelect2.remove();
-                });
-              }
-            });
-            layerView.filter = new FeatureFilter({
-              where: sqlExpression,
-            });
-
-            // For initial state, we need to add this
-            view.on('click', () => {
-              layerView.filter = new FeatureFilter({
-                where: undefined,
-              });
-              highlightSelect2 !== undefined ? highlightSelect2.remove() : console.log('');
             });
           });
         });

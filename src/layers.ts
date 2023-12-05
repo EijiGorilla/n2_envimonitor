@@ -294,7 +294,7 @@ function getUniqueValueSymbol(name: string, color: any, sizeS: number) {
     verticalOffset: verticalOffsetRelocation,
 
     callout: new LineCallout3D({
-      color: [128, 128, 128, 0.1],
+      color: [128, 128, 128, 0.8],
       size: 0.2,
       border: {
         color: 'grey',
@@ -371,24 +371,6 @@ export const monitorPointLayer = new FeatureLayer({
     //offset: 0
   },
   outFields: ['*'],
-  renderer: monitorSymbolRenderer,
-  popupEnabled: false,
-});
-
-export const monitorPointLayer1 = new FeatureLayer({
-  portalItem: {
-    id: '7fdbebd3b79044fd824016da29f94b21',
-    portal: {
-      url: 'https://gis.railway-sector.com/portal',
-    },
-  },
-  title: 'Monitoring Indicators',
-  elevationInfo: {
-    mode: 'relative-to-scene',
-    unit: 'meters',
-    //offset: 0
-  },
-  outFields: ['*'],
   renderer: monitorStatusSymbolRenderer,
   labelingInfo: [MonitorLabel],
   popupTemplate: {
@@ -418,4 +400,4 @@ export const monitorPointLayer1 = new FeatureLayer({
     ],
   },
 });
-monitorPointLayer1.listMode = 'hide';
+monitorPointLayer.listMode = 'hide';
