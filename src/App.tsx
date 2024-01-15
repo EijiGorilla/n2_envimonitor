@@ -20,8 +20,11 @@ import {
   CalciteListItem,
 } from '@esri/calcite-components-react';
 import Chart from './components/Chart';
+import { dateUpdate } from './Query';
 
 function App() {
+  const [asOfDate, setAsOfDate] = useState<undefined | any | unknown>(null);
+
   //**** Set states */
   const mapDiv = useRef(null);
   const layerListDiv = useRef<HTMLDivElement | undefined | any>(null);
@@ -30,11 +33,6 @@ function App() {
   const calcitePanelBasemaps = useRef<HTMLDivElement | undefined | any>(null);
   const [activeWidget, setActiveWidget] = useState<undefined | any | unknown>(null);
   const [nextWidget, setNextWidget] = useState<undefined | any | unknown>(null);
-
-  // Add zoomToLayer in App component, not LotChart component
-  useEffect(() => {
-    // zoomToLayer(lotLayer);
-  }, []);
 
   // End of dropdown list
   useEffect(() => {
@@ -54,6 +52,10 @@ function App() {
   });
 
   useEffect(() => {
+    dateUpdate().then((response: any) => {
+      setAsOfDate(response);
+    });
+
     if (mapDiv.current) {
       /**
        * Initialize
@@ -90,7 +92,7 @@ function App() {
             style={{ marginBottom: 'auto', marginTop: 'auto' }}
           />
           <b className="headerTitle">N2 ENVIRONMENT MONITORING</b>
-          <div className="date">As of January 4, 2024</div>
+          <div className="date">{!asOfDate ? '' : 'As of ' + asOfDate}</div>
 
           <img
             src="https://EijiGorilla.github.io/Symbols/Projec_Logo/GCR LOGO.png"

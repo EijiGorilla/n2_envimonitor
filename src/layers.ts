@@ -12,6 +12,16 @@ import {
 } from '@arcgis/core/symbols';
 import LineCallout3D from '@arcgis/core/symbols/callouts/LineCallout3D';
 
+/* Standalone table for Dates */
+export const dateTable = new FeatureLayer({
+  portalItem: {
+    id: '68fe46f717f94218a9adcbc1dfb908b7',
+    portal: {
+      url: 'https://gis.railway-sector.com/portal',
+    },
+  },
+});
+
 /* Chainage Layer  */
 var labelChainage = new LabelClass({
   labelExpressionInfo: { expression: '$feature.KmSpot' },
