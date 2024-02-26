@@ -15,7 +15,7 @@ import LineCallout3D from '@arcgis/core/symbols/callouts/LineCallout3D';
 /* Standalone table for Dates */
 export const dateTable = new FeatureLayer({
   portalItem: {
-    id: '68fe46f717f94218a9adcbc1dfb908b7',
+    id: 'b2a118b088a44fa0a7a84acbe0844cb2',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -50,7 +50,7 @@ var chainageRenderer = new SimpleRenderer({
 
 export const chainageLayer = new FeatureLayer({
   portalItem: {
-    id: 'e47e9f4d475e4e24acad458a1428f3f9',
+    id: '876de8483da9485aac5df737cbef2143',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -113,7 +113,7 @@ let stationBoxRenderer = new UniqueValueRenderer({
 
 export const stationBoxLayer = new FeatureLayer({
   portalItem: {
-    id: 'e47e9f4d475e4e24acad458a1428f3f9',
+    id: '876de8483da9485aac5df737cbef2143',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -132,12 +132,7 @@ export const stationBoxLayer = new FeatureLayer({
 
 /* ROW Layer */
 export const prowLayer = new FeatureLayer({
-  portalItem: {
-    id: 'e47e9f4d475e4e24acad458a1428f3f9',
-    portal: {
-      url: 'https://gis.railway-sector.com/portal',
-    },
-  },
+  url: 'https://gis.railway-sector.com/server/rest/services/N2_Alignment/FeatureServer/1',
   layerId: 1,
   title: 'PROW',
   popupEnabled: false,
@@ -187,7 +182,7 @@ var labelClass = new LabelClass({
 
 export const stationLayer = new FeatureLayer({
   portalItem: {
-    id: 'e47e9f4d475e4e24acad458a1428f3f9',
+    id: '876de8483da9485aac5df737cbef2143',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -369,11 +364,12 @@ const MonitorLabel = new LabelClass({
 
 export const monitorPointLayer = new FeatureLayer({
   portalItem: {
-    id: '7fdbebd3b79044fd824016da29f94b21',
+    id: '05b19f50364243dbabf06605085b09ce',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
+  layerId: 1,
   title: 'Monitoring Indicators',
   elevationInfo: {
     mode: 'relative-to-scene',
