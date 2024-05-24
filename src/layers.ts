@@ -9,6 +9,7 @@ import {
   PointSymbol3D,
   IconSymbol3DLayer,
   SimpleMarkerSymbol,
+  SimpleLineSymbol,
 } from '@arcgis/core/symbols';
 import LineCallout3D from '@arcgis/core/symbols/callouts/LineCallout3D';
 
@@ -131,11 +132,19 @@ export const stationBoxLayer = new FeatureLayer({
 });
 
 /* ROW Layer */
+var prowRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: '#ff0000',
+    width: '2px',
+  }),
+});
+
 export const prowLayer = new FeatureLayer({
   url: 'https://gis.railway-sector.com/server/rest/services/N2_Alignment/FeatureServer/1',
   layerId: 1,
   title: 'PROW',
   popupEnabled: false,
+  renderer: prowRenderer,
 });
 prowLayer.listMode = 'hide';
 
