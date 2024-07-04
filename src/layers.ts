@@ -65,7 +65,7 @@ export const chainageLayer = new FeatureLayer({
   minScale: 150000,
   maxScale: 0,
   renderer: chainageRenderer,
-  outFields: ['*'],
+  // outFields: ['*'],
   popupEnabled: false,
 });
 
@@ -124,7 +124,7 @@ export const stationBoxLayer = new FeatureLayer({
   minScale: 150000,
   maxScale: 0,
   title: 'Station Box',
-  outFields: ['*'],
+  // outFields: ['*'],
   popupEnabled: false,
   elevationInfo: {
     mode: 'on-the-ground',
@@ -326,7 +326,7 @@ const monitorStatusSymbolRenderer = new UniqueValueRenderer({
       symbol: getUniqueValueSymbol(
         'https://EijiGorilla.github.io/Symbols/No_Data_textLogo.png',
         '#D13470',
-        20,
+        30,
       ),
     },
     {
@@ -335,7 +335,7 @@ const monitorStatusSymbolRenderer = new UniqueValueRenderer({
       symbol: getUniqueValueSymbol(
         'https://EijiGorilla.github.io/Symbols/DemolishComplete_v2.png',
         '#D13470',
-        20,
+        30,
       ),
     },
     {
@@ -344,7 +344,7 @@ const monitorStatusSymbolRenderer = new UniqueValueRenderer({
       symbol: getUniqueValueSymbol(
         'https://EijiGorilla.github.io/Symbols/3D_Web_Style/Warning_Symbol.svg',
         '#D13470',
-        20,
+        30,
       ),
     },
   ],
@@ -385,7 +385,7 @@ export const monitorPointLayer = new FeatureLayer({
     unit: 'meters',
     //offset: 0
   },
-  outFields: ['*'],
+  // outFields: ['*'],
   renderer: monitorStatusSymbolRenderer,
   labelingInfo: [MonitorLabel],
   popupTemplate: {
