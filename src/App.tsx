@@ -168,14 +168,7 @@ function App() {
             style={{ width: '18vw' }}
             hidden
           >
-            <CalciteList>
-              <CalciteListItem
-                label=""
-                description=""
-                value="land-acquisition"
-                ref={layerListDiv}
-              ></CalciteListItem>
-            </CalciteList>
+            <div id="layers-container" ref={layerListDiv}></div>
           </CalcitePanel>
 
           <CalcitePanel
@@ -185,9 +178,7 @@ function App() {
             style={{ width: '18vw' }}
             hidden
           >
-            <CalciteList>
-              <CalciteListItem value="basemaps" ref={calcitePanelBasemaps}></CalciteListItem>
-            </CalciteList>
+            <div id="basemap-container" ref={calcitePanelBasemaps}></div>
           </CalcitePanel>
 
           <CalcitePanel heading="Description" data-panel-id="information" hidden>
